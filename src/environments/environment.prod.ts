@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API: 'https://devapi.luckytrip.co.uk/api/2.0',
 };
