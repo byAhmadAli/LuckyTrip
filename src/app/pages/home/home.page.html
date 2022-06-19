@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<section class="cover">
+  <div class="hero">
+    <h2>Search LuckyTrip</h2>
+    <h3>350 destinations, 1500 blog posts, Unlimited Trips</h3>
+    <app-search-bar [destination]="destination"></app-search-bar>
+  </div>
+</section>
+<section class="trending container">
+  <h2>Trending</h2>
+  
+  <div class="d-flex gap-2">
+    <ng-container
+      *skeleton="isLoading; 
+                             repeat: 3; 
+                             className: 'd-flex'; 
+                             width: '359px';
+                             height: '250px';"
+    >
+    <div *ngIf="cities.length > 0; then showCities; else showError"></div>
+    <ng-template #showCities>
+      <div class="box" *ngFor="let item of cities">
+        <img loading="lazy" [src]="item.image_url" [alt]="item.city" />
+        <h3>{{item.city}}</h3>
+        <a [routerLink]="'search/'+item.id" [title]="item.city"></a>
+      </div>
+    </ng-template>
+      <ng-template #showError>
+        <p>
+          No cities found with your search criteria. Please change the search
+          criteria.
+        </p>
+      </ng-template>
+    </ng-container>
+  </div>
+</section>
