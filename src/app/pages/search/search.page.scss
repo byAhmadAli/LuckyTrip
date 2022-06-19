@@ -1,0 +1,43 @@
+.hero {
+  justify-content: flex-end;
+}
+.container {
+  h2 {
+    font-size: 32px;
+  }
+}
+
+.description {
+  h2 {
+    color: #ffed7b;
+  }
+}
+
+.activities {
+  h2 {
+    color: #ff7b99;
+  }
+}
+
+.blog-post {
+  h2 {
+    color: #7bfbff;
+  }
+}
+
+.page-footer {
+  margin-top: 67px;
+  margin-bottom: 139px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    color: #ff7b99;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    font-size: 24px;
+  }
+}

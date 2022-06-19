@@ -1,0 +1,67 @@
+<app-header [defualtSticky]="true"></app-header>
+<div *ngIf="city; then showCities; else showError"></div>
+<ng-template #showCities>
+  <section
+    class="cover"
+    [ngStyle]="{'background-image': 'url(' + city?.destination?.thumbnail?.image_url + ')', 'background-repeat': 'no-repeat', 'background-position': 'center center'}"
+  >
+    <div class="hero">
+      <h2>{{city?.destination?.city}}</h2>
+      <h3>{{city?.destination?.country_name}}</h3>
+    </div>
+  </section>
+  <section class="description container">
+    <h2>What’s it like?</h2>
+    <p>{{city?.destination?.description?.text}}</p>
+  </section>
+  <section class="activities container">
+    <h2>Activities</h2>
+    <div class="d-flex gap-2">
+      <ng-container
+        *skeleton="isLoading; 
+                             repeat: 3; 
+                             className: 'd-flex'; 
+                             width: '359px';
+                             height: '250px';"
+      >
+        <div class="box" *ngFor="let item of city?.activities">
+          <img
+            loading="lazy"
+            [src]="item.thumbnail.image_url"
+            [alt]="item.name"
+          />
+          <h3>{{item.name}}</h3>
+          <a [href]="item.booking_url" [title]="item.name" target="_blank"></a>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="blog-post container">
+    <h2>Blog Posts</h2>
+    <div class="d-flex gap-2">
+      <ng-container
+        *skeleton="isLoadingBlog; 
+                           repeat: 3; 
+                           className: 'd-flex'; 
+                           width: '359px';
+                           height: '250px';"
+      >
+      </ng-container>
+    </div>
+  </section>
+</ng-template>
+<ng-template #showError>
+  <section class="cover">
+  <div class="not-found container">
+    <h2>SORRY</h2>
+    <h3>WE COULDN'T FIND THAT CITY!</h3>
+    <a [routerLink]="'/'">GO TO HOME</a>
+  </div>
+</section>
+</ng-template>
+<section class="page-footer container">
+  <h2>Find a trip to Rome</h2>
+  <p>Tap the Lucky button to get started…</p>
+  <img loading="lazy" src="/assets/images/lucky-button.png" width="115.56" height="116.93" />
+</section>
