@@ -1,0 +1,60 @@
+.header {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  z-index: 99;
+  padding: 15px 20px;
+  transition: all ease-out 0.3s;
+  h1 {
+    margin: 0;
+  }
+  &.defualt {
+    animation: hide 0.5s;
+  }
+  &.sticky {
+    background: rgba(0, 0, 0, 0.7);
+    background: -moz-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    background: -webkit-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+    animation: show 0.5s;
+  }
+}
+
+@keyframes show {
+  0% {
+    top: -100%;
+  }
+  50% {
+    top: -50%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -100%;
+  }
+  100% {
+    top: 0;
+  }
+}

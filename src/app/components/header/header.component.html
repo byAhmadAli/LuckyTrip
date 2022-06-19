@@ -1,0 +1,14 @@
+<header [ngClass]="{ header: true, sticky: isSticky, defualt: !isSticky }">
+  <h1 class="logo">
+    <a [routerLink]="'/'" title="LuckyTrip Home">
+      <img
+        loading="lazy"
+        src="/assets/images/logo.png"
+        alt="LuckyTrip"
+        width="74"
+        height="50"
+      />
+    </a>
+  </h1>
+  <app-search-bar *ngIf="isSticky" [isSticky]="isSticky" placeholder="Search..."></app-search-bar>
+</header>
