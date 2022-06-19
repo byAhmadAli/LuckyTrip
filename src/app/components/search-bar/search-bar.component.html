@@ -1,0 +1,9 @@
+<div [ngClass]="{ 'search-bar show': true, sticky: isSticky }">
+  <input
+    type="text"
+    [(ngModel)]="destination"
+    (keydown.enter)="navigateTo()"
+    [placeholder]="placeholder"
+  />
+  <button class="search-btn" (click)="navigateTo()">GO</button>
+</div>
